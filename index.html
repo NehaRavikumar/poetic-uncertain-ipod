@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moodify — Draw to Song</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <h1>Moodify — Draw to Song</h1>
+
+    <div class="ipod">
+      <div class="screen">
+        <div id="display" class="display">
+          <canvas id="drawCanvas" width="360" height="240"></canvas>
+          <div id="message" class="message">Draw on the canvas, then press the wheel center to submit.</div>
+        </div>
+      </div>
+
+      <div class="wheel">
+        <div class="wheel-btn" id="menuBtn">Menu</div>
+        <div class="wheel-btn top" id="topBtn"></div>
+        <div class="wheel-btn left" id="leftBtn"></div>
+        <div class="wheel-btn right" id="rightBtn"></div>
+        <div class="wheel-btn bottom" id="bottomBtn"></div>
+        <div class="center" id="submitBtn">Select</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label>Anthropic API Key (optional): <input type="password" id="apiKey" placeholder="paste key to use Anthropic"></label>
+      <label>Randomness: <input id="temp" type="range" min="0" max="1" step="0.01" value="0.85"></label>
+      <button id="clearBtn">Clear</button>
+    </div>
+
+    <div class="result">
+      <strong>Matched song:</strong>
+      <div id="songResult">—</div>
+    </div>
+
+    <footer>
+      <small>Prototype — desktop only. Draw with black on white only.</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+:root{
+  --bg: #f8f4ff;
+  --ipod: #cdb7ff; /* light purple */
+  --screen: #ffffff;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,Arial;margin:0}
+body{background:var(--bg);display:flex;align-items:center;justify-content:center;min-height:100vh}
+.app{width:760px;padding:20px}
+h1{font-size:18px;margin-bottom:12px}
+.ipod{width:420px;margin:0 auto;background:linear-gradient(180deg,#efe7ff,#d9c9ff);border-radius:28px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+.screen{background:var(--screen);height:260px;border-radius:12px;padding:10px;display:flex;align-items:center;justify-content:center;position:relative}
+.display{width:360px;height:240px;background:#fff;border-radius:8px;box-shadow:inset 0 1px 0 rgba(0,0,0,0.04);position:relative}
+#drawCanvas{border-radius:6px;background:#ffffff;cursor:crosshair;display:block}
+.message{position:absolute;left:8px;top:8px;color:#666;font-size:13px}
+.wheel{width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.06);margin:16px auto 0;position:relative;display:flex;align-items:center;justify-content:center}
+.wheel-btn{position:absolute;width:66px;height:30px;border-radius:18px;background:transparent}
+.wheel-btn.top{top:10px;left:50%;transform:translateX(-50%)}
+.wheel-btn.bottom{bottom:10px;left:50%;transform:translateX(-50%)}
+.wheel-btn.left{left:10px;top:50%;transform:translateY(-50%)}
+.wheel-btn.right{right:10px;top:50%;transform:translateY(-50%)}
+.wheel-btn#menuBtn{left:14px;top:10px;width:60px;height:26px;text-align:center;font-weight:600}
+.center{width:90px;height:90px;border-radius:50%;background:var(--ipod);display:flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.12)}
+.controls{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:14px}
+.controls input[type=password]{width:320px}
+.controls label{font-size:13px;color:#222}
+.result{margin-top:12px;text-align:center}
+#songResult{margin-top:6px;font-size:16px;color:#333}
+footer{margin-top:10px;text-align:center;color:#666}
