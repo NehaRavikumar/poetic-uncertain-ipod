@@ -4,11 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Moodify — Draw to Song</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Changa+One&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="config.js?v=3"></script>
 </head>
 <body>
+  <div id="retroCursor" class="retro-cursor" aria-hidden="true">
+    <div class="cursor-core"></div>
+    <div class="cursor-brush">
+      <div class="brush-handle"></div>
+      <div class="brush-ferrule"></div>
+      <div class="brush-tip"></div>
+    </div>
+  </div>
   <div class="app">
-    <h1>Moodify — Draw to Song</h1>
+    <div class="brand-lockup">
+      <div class="brand-title">SongBrush</div>
+    </div>
 
     <div class="ipod">
       <div class="screen">
@@ -29,7 +43,9 @@
     </div>
 
     <div class="controls">
-      <label>Anthropic API Key (optional): <input type="password" id="apiKey" placeholder="paste key to use Anthropic"></label>
+      <label>Anthropic API Key (optional): <input type="password" id="apiKey" placeholder="paste key or load from .env.local"></label>
+      <label>Brush Color: <input id="colorPicker" type="color" value="#000000"></label>
+      <div id="colorPreview" class="color-preview" aria-label="Current brush color"></div>
       <label>Randomness: <input id="temp" type="range" min="0" max="1" step="0.01" value="0.85"></label>
       <button id="clearBtn">Clear</button>
     </div>
@@ -39,11 +55,44 @@
       <div id="songResult">—</div>
     </div>
 
+    <section class="debug-panel" aria-labelledby="debugTitle">
+      <div class="debug-header">
+        <h2 id="debugTitle">Detection Debug</h2>
+        <div id="debugSource" class="debug-source">Waiting for a submission</div>
+      </div>
+      <div class="debug-grid">
+        <div class="debug-card">
+          <h3>Extracted Features</h3>
+          <dl id="featureList" class="debug-list">
+            <div><dt>strokeCount</dt><dd id="feature-strokeCount">—</dd></div>
+            <div><dt>totalLen</dt><dd id="feature-totalLen">—</dd></div>
+            <div><dt>avgLen</dt><dd id="feature-avgLen">—</dd></div>
+            <div><dt>fillRatio</dt><dd id="feature-fillRatio">—</dd></div>
+            <div><dt>bboxRatio</dt><dd id="feature-bboxRatio">—</dd></div>
+            <div><dt>dominantColor</dt><dd id="feature-dominantColor">—</dd></div>
+          </dl>
+        </div>
+        <div class="debug-card">
+          <h3>Heuristic Scores</h3>
+          <div id="scoreList" class="score-list">
+            <div><span>sad</span><strong id="score-sad">—</strong></div>
+            <div><span>happy</span><strong id="score-happy">—</strong></div>
+            <div><span>energetic</span><strong id="score-energetic">—</strong></div>
+            <div><span>calm</span><strong id="score-calm">—</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="debug-card debug-dump-card">
+        <h3>Raw Debug Data</h3>
+        <pre id="debugDump" class="debug-dump">Waiting for a submission</pre>
+      </div>
+    </section>
+
     <footer>
-      <small>Prototype — desktop only. Draw with black on white only.</small>
+      <small>Prototype — desktop only. Draw freely and use color if you want.</small>
     </footer>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
